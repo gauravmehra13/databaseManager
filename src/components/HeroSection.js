@@ -10,7 +10,8 @@ const HeroSection = () => {
         {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab.</p> */}
         <br />
 
-        <Link className="btn btn-success" to={"/add"}>
+        <Link className="btn btn-success text-center" to={"/add"}>
+          <i className="icon icon-plus mx-2"></i>
           Add User
         </Link>
       </div>

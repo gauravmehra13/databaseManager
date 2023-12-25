@@ -104,7 +104,7 @@ function EditPage() {
           style={{ display: "flex", justifyContent: "center" }}
         >
           <Button type="submit" className="btn btn-block create-account">
-            Add User
+            Save
           </Button>
         </div>
       </Form>
