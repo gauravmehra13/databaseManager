@@ -4,33 +4,30 @@ import { Link } from "react-router-dom";
 import { deleteUser, selectUsers } from "../app/slice";
 import Table from "react-bootstrap/Table";
 import { setUsers } from "../app/slice";
+import { fetchData } from "../app/apiService";
 
 const DataTable = (props) => {
-
   const user = useSelector((state) => state.user.users);
   const query = useSelector((state) => state.user.query);
   const filteredData = user.filter((f) =>
     f.name.toLowerCase().includes(query.toLowerCase())
   );
-  
-const dispatch = useDispatch()
-useEffect(() => {
-  const getData = async () => {
-    try {
-      // Check if data already exists in the Redux store
-      if (!user.length) {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
-        const fetchedData = await response.json();
-        dispatch(setUsers(fetchedData));
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        // Check if data already exists in the Redux store
+        if (!user.length) {
+          const fetchedData = await fetchData();
+          dispatch(setUsers(fetchedData));
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  getData();
-}, [dispatch, user]);
-
+    };
+    getData();
+  }, [dispatch, user]);
 
   const tabledata = filteredData.map((actor, index) => (
     <tr key={index}>
@@ -53,7 +50,6 @@ useEffect(() => {
       </td>
     </tr>
   ));
-
 
   const handleDelete = (id) => {
     dispatch(deleteUser({ id: id }));

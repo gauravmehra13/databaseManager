@@ -24,24 +24,24 @@ function AddPage() {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
-      // Form is valid, log values and dispatch the action
-      const highestId = Math.max(...userData.map((item) => parseInt(item.id, 10)), 0);
+      // Form is valid
+      const highestId = Math.max(
+        ...userData.map((item) => parseInt(item.id, 10)),
+        0
+      );
       const newId = highestId + 1;
-  
+
       console.log("Adding user with values:", name, email, username);
       dispatch(addUser({ id: newId, name, email, username }));
-      
-      // Navigate to the DataTable page
+
       navigate("/");
     }
-  
+
     setValidated(true);
   };
 
   return (
     <>
-
-
       <div className="registration-form mt-5">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <div className="form-icon">
@@ -87,9 +87,9 @@ function AddPage() {
             className="form-group"
             style={{ display: "flex", justifyContent: "center" }}
           >
-          <Button type="submit" className="btn btn-block create-account">
-            Add User
-          </Button>
+            <Button type="submit" className="btn btn-block create-account">
+              Add User
+            </Button>
           </div>
         </Form>
       </div>

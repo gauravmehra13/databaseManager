@@ -3,30 +3,30 @@ export const actors = [
         id: 1,
         name: "Robert Deniro",
         email: "roberto@gmail.com",
-        course:"Boxing"
+        username:"RagingBull"
     },
     {
         id: 2,
         name: "Al Pacino",
         email: "pacman@gmail.com",
-        course:"Godfather"
+        username:"Scarface"
     },
     {
         id: 3,
         name: "Dustin Hoffman",
         email: "dusty@gmail.com",
-        course:"Business"
+        username:"Business"
     },
     {
         id: 4,
         name: "Marlon Brando",
         email: "thegodfather@gmail.com",
-        course:"Acting"
+        username:"Godfather"
     },
     {
         id: 5,
         name: "Jack Nicholson",
         email: "alwaysshining@gmail.com",
-        course:"Cooking"
+        username:"TheCaretaker"
     }
 ]
