@@ -27,7 +27,10 @@ function NavigationBar(props) {
       <Container fluid>
         <Link to="/" style={{ textDecoration: "none" }}>
           {" "}
-          <Navbar.Brand> <i className="icon icon-people mx-1"></i> Database Manager</Navbar.Brand>
+          <Navbar.Brand>
+            {" "}
+            <i className="icon icon-people mx-1"></i> Database Manager
+          </Navbar.Brand>
         </Link>
 
         <Navbar.Toggle aria-controls="navbarScroll" />

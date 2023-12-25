@@ -1,15 +1,11 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import NavigationBar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import DataTable from "./components/DataTable";
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import AddPage from "./pages/AddPage";
+import AddPage from "./pages/AddPage/AddPage";
 import EditPage from "./pages/EditPage";
 import { useState } from "react";
-import Footer from "./components/Footer";
 
 function App() {
   const [mode, setMode] = useState("light");

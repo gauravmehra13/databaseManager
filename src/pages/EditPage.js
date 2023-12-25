@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { editUser } from "../app/slice";
-import "./AddPage.css";
+import "./AddPage/AddPage.css";
 
 function EditPage() {
   const { id } = useParams();
   const parsedId = parseInt(id, 10); // Convert id to number
 
-  const userData = useSelector((state) => state.user.data);
+  const userData = useSelector((state) => state.user.users);
   const existingUser = userData.find((user) => user.id === parsedId);
 
   const [uName, setUName] = useState("");
   const [uEmail, setUEmail] = useState("");
-  const [uCourse, setUCourse] = useState("");
+  const [uUSername, setUUsername] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,7 +26,7 @@ function EditPage() {
     if (existingUser) {
       setUName(existingUser.name);
       setUEmail(existingUser.email);
-      setUCourse(existingUser.course);
+      setUUsername(existingUser.username);
     }
   }, [existingUser]);
 
@@ -42,7 +39,7 @@ function EditPage() {
       const updatedUser = {
         name: uName,
         email: uEmail,
-        course: uCourse,
+        username: uUSername,
       };
 
       dispatch(editUser({ id: parsedId, updatedUser }));
@@ -62,7 +59,7 @@ function EditPage() {
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <div className="form-icon">
           <span>
-            <i className="icon icon-user-follow"></i>
+            <i className="icon icon-user"></i>
           </span>
         </div>
         <div className="form-group">
@@ -94,8 +91,8 @@ function EditPage() {
             type="text"
             placeholder="Course"
             required
-            value={uCourse}
-            onChange={(e) => setUCourse(e.target.value)}
+            value={uUSername}
+            onChange={(e) => setUUsername(e.target.value)}
           />
           <Form.Control.Feedback type="invalid">
             Please provide a valid course.
@@ -106,7 +103,7 @@ function EditPage() {
           className="form-group"
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <Button type="submit" class="btn btn-block create-account">
+          <Button type="submit" className="btn btn-block create-account">
             Add User
           </Button>
         </div>
