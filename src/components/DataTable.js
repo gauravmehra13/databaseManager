@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteUser, selectUsers } from "../app/slice";
+import { deleteUser } from "../app/slice";
 import Table from "react-bootstrap/Table";
 import { setUsers } from "../app/slice";
 import { fetchData } from "../app/apiService";

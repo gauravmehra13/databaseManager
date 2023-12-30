@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { actors } from "./data";
 
 const loadState = () => {
   try {
